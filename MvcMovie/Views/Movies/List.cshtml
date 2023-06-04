@@ -1,0 +1,38 @@
+﻿@model MvcMovie.Models.ViewModels.ListMoviesViewModel
+
+@{
+    ViewData["Title"] = "All Movies";
+}
+
+<form asp-controller="Movies" asp-action="List" method="get">
+    <select asp-for="ratingID" asp-items="Model.Ratings">
+        <option value="0">-- Select a rating --</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
+
+<br />
+
+<table>
+    <tr>
+        <th>@(Html.DisplayNameFor(model => model.Movies[0].Title))</th>
+        <th>@(Html.DisplayNameFor(model => model.Movies[0].ReleaseDate))</th>
+        <th>@(Html.DisplayNameFor(model => model.Movies[0].Genre))</th>
+    </tr>
+    @foreach (var item in Model.Movies)
+    {
+        <tr>
+            <td>
+                <a asp-controller="Movies" asp-action="Details"
+               asp-route-id="@item.MovieID">@(Html.DisplayFor(modelItem => item.Title))</a>
+            </td>
+            <td>@(Html.DisplayFor(modelItem => item.ReleaseDate, "{0:yyyy-MM-dd}"))</td>
+            <td>@(Html.DisplayFor(modelItem => item.Genre))</td>
+        </tr>
+    }
+
+</table>
+<br/><br/>
+<a asp-controller="Home" asp-action="Index">Back to menu</a> |
+<a asp-controller="Movies" asp-action="Create">Create movie</a>
+<br />

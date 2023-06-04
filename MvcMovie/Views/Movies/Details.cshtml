@@ -1,0 +1,42 @@
+﻿@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<dl>
+    <dt>
+        @Html.DisplayNameFor(model => model.Genre)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Genre)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Price)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.ReleaseDate)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.ReleaseDate)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Title)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Title)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Rating)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Rating.Name)
+    </dd>
+</dl>
+
+<br />
+<br />
+<a asp-controller="Home" asp-action="Index">Back to menu</a> 

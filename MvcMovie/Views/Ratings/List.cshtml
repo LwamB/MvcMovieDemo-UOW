@@ -1,0 +1,30 @@
+@model IEnumerable<MvcMovie.Models.Rating>
+
+@{
+    ViewData["Title"] = "All Ratings";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Code)</th>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Code)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RatingID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.RatingID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<a asp-controller="Home" asp-action="Index">Back to menu</a> 
